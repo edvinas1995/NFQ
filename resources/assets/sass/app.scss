@@ -1,0 +1,193 @@
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #fff;
+}
+body > header {
+  padding: 30px 0px;
+  .logo {
+    font-size: 30px;
+    color: $color-blue;
+    @include transition(0.3s ease-in-out all);
+    &:hover {
+      color: $color-info;
+      text-decoration: none;
+    }
+  }
+}
+body > footer {
+  padding: 30px 0;
+  background-color: $color-grey;
+  text-align: center;
+  p {
+    margin: 0
+  }
+}
+.main-header-bottom {
+  background: #ffffff url("/images/header.jpg") no-repeat center;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  .overlay {
+    background: rgba(0, 0, 0, 0.67);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  span {
+    font-size: 34px;
+    display: block;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 9;
+    border-bottom: 5px solid $color-blue;
+  }
+}
+.section-block {
+  padding: 50px 0;
+  margin-bottom: 50px;
+  .headline {
+    margin-bottom: 50px;
+    text-align: center;
+    > span {
+      font-size: 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $color-primary;
+      position: relative;
+      &:before {
+        content: "";
+        width: 60px;
+        height: 3px;
+        display: block;
+        position: absolute;
+        bottom: -10px;
+        left:0;
+        right: 0;
+        margin: auto;
+        background-color: $color-blue;
+      }
+    }
+  }
+}
+section.about {
+  .content {
+    > div > img {
+      width: 100%;
+    }
+  }
+}
+section.testimonials {
+  display: block;
+  background-color: $color-semi-blue;
+  .testimonial-block {
+    padding: 30px;
+    background-color: #fff;
+    .tes-top {
+        margin-bottom: 30px;
+        width: 100%;
+        clear: both;
+        @include flexbox;
+        @include align-items(center);
+        .image {
+          float: left;
+          width: 70px;
+          height:70px;
+          background-size: cover;
+          background-position: center;
+          display: block;
+          margin-right: 15px;
+        }
+        span {
+          color: #000000;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+  }
+  .swiper-pagination {
+    position: relative;
+    left:0;
+    right:0;
+
+    .swiper-pagination-bullet-active {
+      background-color: $color-blue;
+    }
+    >span {
+      margin: 15px 5px;
+    }
+  }
+}
+section.order-form {
+  .content {
+    display: inline-block;
+    clear: both;
+  }
+  input[type="submit"]{
+    margin-left: 15px;
+  }
+}
+
+.form-group label {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+input:not([type="submit"]){
+  padding: 15px 10px;
+  width: 100%;
+  outline: 0;
+  border:solid 1px $color-grey;
+  box-shadow: none;
+  @include transition(0.3s ease-in-out all);
+  &:hover, &:focus, &:active {
+    border:solid 1px #989898;
+    box-shadow: none;
+  }
+}
+section.order-list {
+  .search {
+    margin-bottom: 50px;
+    input[type=submit]{
+      margin-top:15px;
+    }
+  }
+
+  table thead th:not(:last-child) {
+    cursor: pointer;
+    @include transition(0.3s ease-in-out all);
+    &:hover {
+      color: $color-blue;
+    }
+  }
+}
+@media(max-width:767px){
+  .table-holder {
+    overflow-x: scroll;
+    table {
+      min-width: 600px;
+      width: 100%;
+    }
+  }
+
+  body > header {
+    > div > div {
+      width: 100%;
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+    }
+  }
+}
