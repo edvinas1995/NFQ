@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Gallery;
 use App\Order;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
+use Mockery\Exception;
+
 class MainController extends Controller
 {
     public function index(){
@@ -30,8 +33,10 @@ class MainController extends Controller
         return view('orders', compact('orders'));
     }
     public function save(Request $request){
+
+
         $rules = [
-            'name' => 'required|alpha',
+            'name' => 'required|regex:/^[\pL\s\-]+$/u',
             'height' => 'required|integer|between:50,300',
             'age' => 'required|integer|between:1,99',
             'weight' => 'required|integer|between:10,200',
@@ -39,7 +44,7 @@ class MainController extends Controller
         ];
         $photos = count($request->input('photos'));
         foreach(range(0, $photos) as $index) {
-            $rules['photos.' . $index] = 'required|image|max:2000';
+            $rules['photos.' . $index] = "required|image|max:2000";
         }
         $this->validate($request,$rules);
 

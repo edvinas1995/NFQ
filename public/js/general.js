@@ -1,6 +1,7 @@
 window.onload = function(){
     testimonialsSlider();
     sortOnClick();
+    scrollOnAlert();
 };
 
 function testimonialsSlider(){
@@ -16,6 +17,13 @@ function testimonialsSlider(){
                 }
             }
         });
+    }
+}
+function scrollOnAlert(){
+    var alert = $(".order-form .alert");
+    if(alert.is(":visible")){
+        var position = alert.position();
+        document.body.scrollTop = position.top;
     }
 }
 function sortOnClick(){

@@ -17,3 +17,4 @@ Route::get('/orders', 'MainController@ordersPage')->name('orders.page');
 
 Route::resource("/search",'SearchController');
 
+

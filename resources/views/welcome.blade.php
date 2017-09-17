@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-md-6 col-xs-12">
                             <div class="form-group">
-                                <label>Nuotraukos</label>
+                                <label>Nuotraukos (max. 2mb)</label>
                                 <input type="file" name="photos[]" multiple value="{{old('photos')}}">
                             </div>
                         </div>
