@@ -27,7 +27,7 @@ class MainController extends Controller
                 ->orWhere('age', $results)
                 ->get();
         else:
-            $orders = Order::with('images')->paginate(3);;
+            $orders = Order::with('images')->paginate(10);;
         endif;
 
         return view('orders', compact('orders'));
@@ -66,10 +66,10 @@ class MainController extends Controller
     protected function uploadPhotos($request, $order){
         if ($request->hasFile('photos')):
             foreach ($request->photos as $photo):
-                $path = $photo->store('uploads');
+                $path = $photo->store('');
                 $image = new Gallery();
                 $image->order_id = $order->id;
-                $image->image = $path;
+                $image->image = 'storage/'. $path;
                 $image->save();
             endforeach;
         endif;
